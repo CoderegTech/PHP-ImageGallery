@@ -1,0 +1,467 @@
+:root {
+  --primary-font: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+    sans-serif;
+  --secondary-font: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  --primary-color: #0499d4;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #fefefe;
+}
+
+.alert {
+  width: 300px;
+  border-radius: 5px;
+  padding: 0.8rem 1rem;
+  background-color: #00c030;
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: top 500ms ease-in-out;
+  transition: top 500ms ease-in-out;
+}
+
+.alert.show {
+  top: 5%;
+}
+
+.alert.hide {
+  top: -100%;
+}
+
+.alert .alert-msg {
+  color: #fefefe;
+  font-size: 1.1rem;
+  font-family: var(--primary-font);
+}
+
+.alert span i {
+  color: #fefefe;
+}
+
+.container {
+  width: 100%;
+  margin: 1rem auto;
+  padding: 0 1.2rem 1rem 1.2rem;
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.container header {
+  width: 90%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem 0 2rem 0;
+}
+
+.container header .title {
+  font-size: 2rem;
+  font-family: var(--primary-font);
+  font-weight: 500;
+}
+
+.container header .upload-modal-btn {
+  padding: 0.3rem 0.5rem;
+  outline: none;
+  border: none;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1.1rem;
+}
+
+.container .gallery-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container .gallery-container .post {
+  width: 330px;
+  height: 230px;
+  position: relative;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.container .gallery-container .post:hover .img-box img {
+  -webkit-transform: scale(1.2) rotate(8deg);
+          transform: scale(1.2) rotate(8deg);
+}
+
+.container .gallery-container .post .img-box {
+  width: 100%;
+  height: 100%;
+}
+
+.container .gallery-container .post .img-box img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: 300ms linear;
+  transition: 300ms linear;
+}
+
+.container .gallery-container .post:hover .text-content {
+  bottom: 0;
+}
+
+.container .gallery-container .post:hover .text-content .title-row,
+.container .gallery-container .post:hover .text-content p,
+.container .gallery-container .post:hover .text-content .options {
+  opacity: 1;
+  -webkit-transform: translateY(0) translateX(0);
+          transform: translateY(0) translateX(0);
+}
+
+.container .gallery-container .post:hover .text-content .title-row h2::before {
+  width: 50px;
+}
+
+.container .gallery-container .post .text-content {
+  width: 100%;
+  height: 60%;
+  border-radius: 20px 20px 0 0;
+  position: absolute;
+  bottom: -100%;
+  padding: 1rem;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4)), to(rgba(0, 0, 0, 0.9)));
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9));
+  -webkit-transition: bottom 300ms linear;
+  transition: bottom 300ms linear;
+}
+
+.container .gallery-container .post .text-content .options {
+  opacity: 0;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: 400ms ease-in 300ms;
+  transition: 400ms ease-in 300ms;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.container .gallery-container .post .text-content .options .timeago {
+  color: #f0f0f0;
+  font-size: 0.8rem;
+  font-family: var(--secondary-font);
+}
+
+.container .gallery-container .post .text-content .options .options-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+}
+
+.container .gallery-container .post .text-content .options .options-btn .edit,
+.container .gallery-container .post .text-content .options .options-btn .del {
+  display: block;
+  color: #fff;
+  padding: 1px;
+}
+
+.container .gallery-container .post .text-content .title-row {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 0.5rem;
+          column-gap: 0.5rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  opacity: 0;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: 300ms ease-in 200ms;
+  transition: 300ms ease-in 200ms;
+}
+
+.container .gallery-container .post .text-content .title-row h2 {
+  font-family: var(--primary-font);
+  font-size: 1.2rem;
+  padding: 0.2rem 0;
+  color: #fefefe;
+  position: relative;
+}
+
+.container .gallery-container .post .text-content .title-row h2::before {
+  content: "";
+  width: 0;
+  height: 3px;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: width 300ms linear 500ms;
+  transition: width 300ms linear 500ms;
+}
+
+.container .gallery-container .post .text-content p {
+  opacity: 0;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-transition: 300ms linear 200ms;
+  transition: 300ms linear 200ms;
+  font-family: var(--secondary-font);
+  font-size: 0.9rem;
+  padding: 0.2rem 0;
+  color: #fefefe;
+}
+
+.modal {
+  max-width: 500px;
+  width: 100%;
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: top 300ms linear;
+  transition: top 300ms linear;
+  background-color: #fefefe;
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+@media (max-width: 767px) {
+  .modal {
+    width: 95%;
+  }
+}
+
+.modal.show {
+  top: 50%;
+}
+
+.modal h2 {
+  font-size: 2rem;
+  font-family: var(--primary-font);
+  font-weight: 500;
+  padding: 0.5rem 0;
+}
+
+.modal .form {
+  width: 100%;
+}
+
+.modal .form input[type="text"],
+.modal .form textarea {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  outline: none;
+  resize: none;
+}
+
+.modal .form textarea {
+  height: 80px;
+}
+
+.modal .form textarea::-webkit-scrollbar {
+  width: 5px;
+}
+
+.modal .form textarea::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+.modal .form .droparea {
+  width: 100%;
+  height: 250px;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  row-gap: 0.5rem;
+  position: relative;
+  border: 2px dashed #222;
+  overflow: hidden;
+}
+
+.modal .form .droparea .imageBox {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+}
+
+.modal .form .droparea .imageBox .removeBtn {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  z-index: 10;
+}
+
+.modal .form .droparea .imageBox .removeBtn i {
+  color: #111;
+  font-size: 1.1rem;
+  padding: 0.3rem;
+  border-radius: 50%;
+}
+
+.modal .form .droparea .imageBox img {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.modal .form .droparea i {
+  font-size: 2rem;
+}
+
+.modal .form .droparea h2 {
+  font-family: var(--primary-font);
+  font-weight: 500;
+  font-size: 1.3rem;
+  padding: 0;
+  margin: 0;
+}
+
+.modal .form .droparea span {
+  font-size: 1.1rem;
+}
+
+.modal .form .droparea button {
+  outline: none;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: #fefefe;
+  background: var(--primary-color);
+  -webkit-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.modal .form .droparea button:hover {
+  -webkit-box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 767px) {
+  .modal .form .droparea {
+    gap: 0.5rem;
+  }
+  .modal .form .droparea h2 {
+    font-size: 1.3rem;
+  }
+}
+
+.modal .form .formBtn {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.9rem;
+  padding-top: 1rem;
+}
+
+.modal .form .formBtn button {
+  padding: 0.5rem 0.8rem;
+  outline: none;
+  border: none;
+}
+
+.modal .form .formBtn button.cancel-btn {
+  background: #df1313;
+  color: #fefefe;
+}
+
+.modal .form .formBtn button.submit-btn {
+  background-color: var(--primary-color);
+  color: #fefefe;
+}
+/*# sourceMappingURL=main.css.map */
